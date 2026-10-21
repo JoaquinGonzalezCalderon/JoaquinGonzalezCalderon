@@ -1,12 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="480" height="205" viewBox="0 0 480 205" role="img" aria-label="Proyecto ENJAMBRE: Drones y decisiones en postemergencias">
-<defs><linearGradient id="b" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0C111B"/><stop offset="1" stop-color="#111C30"/></linearGradient></defs>
-<rect width="480" height="205" rx="16" fill="url(#b)"/>
-<rect x="1" y="1" width="478" height="203" rx="15" fill="none" stroke="#233757" stroke-width="2"/>
-<rect x="26" y="27" width="18" height="3" rx="1" fill="#67A9FB"/>
-<text x="55" y="32" font-family="DejaVu Sans, Arial, sans-serif" font-size="11" font-weight="bold" letter-spacing="1.4" fill="#95B9E9">03  /  PROYECTO DESTACADO</text>
-<text x="26" y="98" font-family="DejaVu Sans, Arial, sans-serif" font-weight="bold" font-size="38" fill="#F8FAFC">ENJAMBRE</text>
-<text x="26" y="126" font-family="DejaVu Sans, Arial, sans-serif" font-size="13" fill="#B9C8DC">Drones y decisiones en postemergencias</text>
-<path d="M26 150H454" stroke="#284268" opacity=".7"/>
-<text x="26" y="175" font-family="DejaVu Sans, Arial, sans-serif" font-size="11" letter-spacing=".7" fill="#7EA8E4">Innovación · Tecnología para emergencias</text>
-<path d="M371 96L401 111L431 96M401 111V143" stroke="#A7CCFF" fill="none" stroke-width="5" stroke-linecap="round"/><circle cx="366" cy="89" r="13" fill="none" stroke="#66A5FF" stroke-width="6"/><circle cx="436" cy="89" r="13" fill="none" stroke="#66A5FF" stroke-width="6"/><circle cx="366" cy="148" r="13" fill="none" stroke="#66A5FF" stroke-width="6"/><circle cx="436" cy="148" r="13" fill="none" stroke="#66A5FF" stroke-width="6"/><path d="M401 111L373 142M401 111L429 142" stroke="#A7CCFF" stroke-width="4"/><circle cx="401" cy="111" r="10" fill="#C5DFFF"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="150" viewBox="0 0 520 150" role="img" aria-label="ENJAMBRE · DRONES Y RESPUESTA"><rect width="520" height="150" rx="18" fill="#0D1117"/><rect x="1" y="1" width="518" height="148" rx="17" fill="none" stroke="#263244"/><rect x="0" y="0" width="5" height="150" rx="2" fill="#3B82F6"/><circle cx="454" cy="75" r="35" fill="#151B23"/><text x="454" y="84" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#3B82F6">E</text><text x="28" y="37" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#94A3B8">DRONES Y RESPUESTA</text><text x="28" y="78" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="700" fill="#F8FAFC">ENJAMBRE</text><text x="28" y="108" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#94A3B8">Reconocimiento para postemergencias</text></svg>

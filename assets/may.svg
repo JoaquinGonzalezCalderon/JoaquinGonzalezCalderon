@@ -1,12 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="480" height="205" viewBox="0 0 480 205" role="img" aria-label="Proyecto MAY: Un editor multimedia todo en uno">
-<defs><linearGradient id="b" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0C111B"/><stop offset="1" stop-color="#111C30"/></linearGradient></defs>
-<rect width="480" height="205" rx="16" fill="url(#b)"/>
-<rect x="1" y="1" width="478" height="203" rx="15" fill="none" stroke="#233757" stroke-width="2"/>
-<rect x="26" y="27" width="18" height="3" rx="1" fill="#82B5F9"/>
-<text x="55" y="32" font-family="DejaVu Sans, Arial, sans-serif" font-size="11" font-weight="bold" letter-spacing="1.4" fill="#95B9E9">04  /  PROYECTO DESTACADO</text>
-<text x="26" y="98" font-family="DejaVu Sans, Arial, sans-serif" font-weight="bold" font-size="38" fill="#F8FAFC">MAY</text>
-<text x="26" y="126" font-family="DejaVu Sans, Arial, sans-serif" font-size="13" fill="#B9C8DC">Un editor multimedia todo en uno</text>
-<path d="M26 150H454" stroke="#284268" opacity=".7"/>
-<text x="26" y="175" font-family="DejaVu Sans, Arial, sans-serif" font-size="11" letter-spacing=".7" fill="#7EA8E4">Herramientas creativas · En desarrollo</text>
-<circle cx="400" cy="113" r="28" stroke="#95C5FF" stroke-width="5" fill="none"/><path d="M400 63V74M400 151V163M350 113H361M439 113H450M364 77L371 84M429 142L436 149M436 77L429 84M371 142L364 149" stroke="#95C5FF" stroke-width="4" stroke-linecap="round"/><path d="M400 92L404 112L400 135L396 112Z" fill="#95C5FF"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="150" viewBox="0 0 520 150" role="img" aria-label="MAY · CREACIÓN MULTIMEDIA"><rect width="520" height="150" rx="18" fill="#0D1117"/><rect x="1" y="1" width="518" height="148" rx="17" fill="none" stroke="#263244"/><rect x="0" y="0" width="5" height="150" rx="2" fill="#3B82F6"/><circle cx="454" cy="75" r="35" fill="#151B23"/><text x="454" y="84" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#3B82F6">M</text><text x="28" y="37" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#94A3B8">CREACIÓN MULTIMEDIA</text><text x="28" y="78" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="700" fill="#F8FAFC">MAY</text><text x="28" y="108" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#94A3B8">Edición modular de video y audio</text></svg>
