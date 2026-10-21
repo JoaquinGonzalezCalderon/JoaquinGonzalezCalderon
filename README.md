@@ -3,59 +3,47 @@
 </p>
 
 <p align="center">
-  <a href="https://www.joaquincalderon.com.ar/">Portfolio</a>
-  &nbsp;·&nbsp;
-  <a href="https://www.instagram.com/joaquinncalderon/">Instagram</a>
-  &nbsp;·&nbsp;
-  <a href="https://github.com/JoaquinGonzalezCalderon">GitHub</a>
+  <a href="https://www.joaquincalderon.com.ar/">PORTFOLIO</a>
+  &nbsp;&nbsp;·&nbsp;&nbsp;
+  <a href="https://www.instagram.com/joaquinncalderon/">INSTAGRAM</a>
+  &nbsp;&nbsp;·&nbsp;&nbsp;
+  <a href="https://github.com/JoaquinGonzalezCalderon">GITHUB</a>
 </p>
 
-## Sobre mí
+## 01 — Perfil
 
-Soy analista en sistemas y desarrollador full stack. Me interesa convertir problemas reales en productos digitales claros, útiles y bien construidos. Trabajo en aplicaciones web y móviles, desde la idea y la interfaz hasta su implementación.
+Analista en Sistemas y desarrollador Full Stack. Diseño y construyo productos digitales, desde la idea hasta su implementación.
 
-## Tecnologías
-
-<p>
-  <img src="https://skillicons.dev/icons?i=ts,js,react,nextjs,tailwind,python,postgres,git,docker,figma&theme=dark" alt="TypeScript, JavaScript, React, Next.js, Tailwind CSS, Python, PostgreSQL, Git, Docker y Figma">
-</p>
-
-## Proyectos
-
-<table>
-  <tr>
-    <td width="50%" valign="top">
-      <img src="assets/streak.svg" alt="STREAK" width="100%">
-      <p>Seguimiento de hábitos, creatina, entrenamientos y progreso personal.</p>
-      <a href="https://www.streak.com.ar/app">Visitar STREAK →</a>
-    </td>
-    <td width="50%" valign="top">
-      <img src="assets/stugo.svg" alt="STUGO" width="100%">
-      <p>App móvil en equipo para estudiantes universitarios: servicios, lugares, vivienda y viajes compartidos.</p>
-      <sub>Proyecto colaborativo · repositorio privado</sub>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" valign="top">
-      <img src="assets/enjambre.svg" alt="ENJAMBRE" width="100%">
-      <p>Reconocimiento con drones para apoyar decisiones durante la respuesta a postemergencias.</p>
-    </td>
-    <td width="50%" valign="top">
-      <img src="assets/may.svg" alt="MAY" width="100%">
-      <p>Editor multimedia de video y audio todo en uno, con interfaz modular y herramientas para creadores.</p>
-    </td>
-  </tr>
-</table>
-
-## GitHub
+## 02 — Tecnologías
 
 <p align="center">
-  <img src="assets/stats.svg" alt="Resumen de estadísticas públicas de GitHub" width="49%">
-  <img src="assets/languages.svg" alt="Lenguajes más utilizados en repositorios públicos" width="49%">
+  <img src="https://skillicons.dev/icons?i=ts,js,react,nextjs,tailwind,python,postgres,git,docker,figma&theme=dark&perline=10" alt="TypeScript, JavaScript, React, Next.js, Tailwind CSS, Python, PostgreSQL, Git, Docker y Figma">
 </p>
 
-<p align="center">
-  <img src="assets/activity.svg" alt="Actividad pública reciente en GitHub" width="100%">
-</p>
+## 03 — Proyectos seleccionados
 
-<p align="center"><sub>Estadísticas calculadas a partir de repositorios y actividad públicos.</sub></p>
+<p><img src="assets/streak.svg" alt="STREAK · hábitos y entrenamiento" width="100%"></p>
+
+Seguimiento de hábitos, creatina, entrenamientos y progreso personal. [Abrir aplicación ↗](https://www.streak.com.ar/app)
+
+<p><img src="assets/stugo.svg" alt="STUGO · vida universitaria" width="100%"></p>
+
+Aplicación móvil en equipo para estudiantes universitarios: servicios, lugares, vivienda y viajes compartidos. <sub>Repositorio privado</sub>
+
+<p><img src="assets/enjambre.svg" alt="ENJAMBRE · drones y respuesta a emergencias" width="100%"></p>
+
+Reconocimiento con drones para apoyar decisiones durante la respuesta a postemergencias.
+
+<p><img src="assets/may.svg" alt="MAY · edición audiovisual" width="100%"></p>
+
+Editor multimedia de video y audio todo en uno, con interfaz modular y herramientas para creadores.
+
+## 04 — GitHub
+
+<p><img src="assets/stats.svg" alt="Resumen de estadísticas públicas de GitHub" width="100%"></p>
+
+<p><img src="assets/languages.svg" alt="Lenguajes más utilizados en repositorios públicos" width="100%"></p>
+
+<p><img src="assets/activity.svg" alt="Actividad pública reciente en GitHub" width="100%"></p>
+
+<p align="center"><sub>Datos basados en repositorios y actividad públicos.</sub></p>
