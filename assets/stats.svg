@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="170" viewBox="0 0 980 170" role="img" aria-label="Resumen público de GitHub; se actualiza automáticamente">
+  <rect width="980" height="170" rx="16" fill="#0D1117"/>
+  <rect x="1" y="1" width="978" height="168" rx="15" fill="none" stroke="#263244"/>
+  <text x="24" y="34" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" letter-spacing="1.4" fill="#3B82F6">RESUMEN PÚBLICO</text>
+  <text x="24" y="91" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#F8FAFC">Las estadísticas se actualizarán automáticamente al publicar el repositorio.</text>
+  <text x="24" y="122" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#94A3B8">Actualización diaria desde la API de GitHub</text>
+</svg>
