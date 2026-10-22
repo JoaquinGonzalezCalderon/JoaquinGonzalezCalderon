@@ -24,19 +24,196 @@ async function ownedRepositories() {
   }
 }
 
-const escapeXml = (value) => String(value).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&apos;');
-const colors = { bg: '#080A12', white: '#E8ECF8', blue: '#6578FF', cyan: '#50E5FF', muted: '#858BA2', line: '#20263A', soft: '#111522' };
-const font = 'Courier New, Consolas, monospace';
-const write = (name, content) => writeFile(new URL(`../assets/${name}`, import.meta.url), content, 'utf8');
-const svg = (width, height, label, body) => `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-label="${escapeXml(label)}"><rect width="${width}" height="${height}" rx="18" fill="${colors.bg}"/><rect x="1" y="1" width="${width - 2}" height="${height - 2}" rx="17" fill="none" stroke="${colors.line}"/>${body}</svg>`;
-const title = (text, x = 28, y = 34) => `<text x="${x}" y="${y}" font-family="${font}" font-size="12" font-weight="700" letter-spacing="1.5" fill="${colors.muted}">${escapeXml(text.toUpperCase())}</text>`;
-const projectCard = (name, eyebrow, detail, mark, number) => svg(520, 150, `${name} · ${eyebrow}`, `<path d="M18 1H502Q519 1 519 18V132Q519 149 502 149H18Q1 149 1 132V18Q1 1 18 1Z" fill="none" stroke="#343844"/><path d="M1 18V1H18" fill="none" stroke="${colors.white}" stroke-width="2"/><text x="24" y="29" font-family="${font}" font-size="10" letter-spacing="1.5" fill="${colors.white}">PROYECTO / ${number}</text><text x="496" y="29" text-anchor="end" font-family="${font}" font-size="10" fill="#A7ABB5">[ ${escapeXml(eyebrow)} ]</text><path d="M24 43H496" stroke="#343844"/><text x="24" y="84" font-family="${font}" font-size="28" font-weight="700" letter-spacing="1" fill="${colors.white}">${escapeXml(name)}</text><text x="24" y="113" font-family="${font}" font-size="13" fill="#A7ABB5">${escapeXml(detail)}</text><rect x="451" y="65" width="45" height="45" rx="4" fill="#111318" stroke="#343844"/><text x="473" y="95" text-anchor="middle" font-family="${font}" font-size="22" fill="${colors.white}">${escapeXml(mark)}</text><text x="496" y="135" text-anchor="end" font-family="${font}" font-size="9" fill="#A7ABB5">GC / ${number}</text>`);
+// Paleta tomada del banner: fondo, tinta blanca de los puntos y el cuadrado azul.
+const themes = {
+  dark: { bg: '#0B0F14', ink: '#F0EFEE', muted: '#7C838F', line: '#1E242D', faint: '#161B22' },
+  light: { bg: '#FFFFFF', ink: '#0B0F14', muted: '#656D76', line: '#D0D7DE', faint: '#EAEEF2' },
+};
+const accent = '#0B97FC';
+const dark = themes.dark;
+const font = 'ui-monospace, SFMono-Regular, Menlo, Consolas, Liberation Mono, monospace';
 
-await write('header.svg', svg(1200, 270, 'Joaquín González Calderón · Analista en Sistemas y Desarrollador Full Stack', `<defs><linearGradient id="signal" x1="0" x2="1" y1="1" y2="0"><stop stop-color="${colors.blue}"/><stop offset="1" stop-color="${colors.cyan}"/></linearGradient></defs><path d="M24 0V270" stroke="${colors.line}"/><text x="42" y="42" font-family="${font}" font-size="11" letter-spacing="1.3" fill="${colors.cyan}">JG / SISTEMAS &amp; SOFTWARE</text><text x="1158" y="42" text-anchor="end" font-family="${font}" font-size="10" fill="${colors.muted}">BUENOS AIRES · AR</text><path d="M42 59H1158" stroke="${colors.line}"/><text x="42" y="127" font-family="${font}" font-size="42" font-weight="700" letter-spacing="-1.3" fill="${colors.white}">Joaquín González Calderón</text><text x="45" y="163" font-family="${font}" font-size="15" fill="${colors.muted}">ANALISTA EN SISTEMAS <tspan fill="${colors.blue}">/</tspan> DESARROLLADOR FULL STACK</text><path d="M45 198H560" stroke="${colors.line}"/><text x="45" y="226" font-family="${font}" font-size="11" letter-spacing="1.2" fill="${colors.muted}">CREANDO PRODUCTOS DIGITALES</text><text x="1158" y="226" text-anchor="end" font-family="${font}" font-size="11" fill="${colors.cyan}">PERFIL_001</text><circle cx="920" cy="142" r="91" fill="${colors.soft}" stroke="${colors.line}"/><circle cx="920" cy="142" r="70" fill="none" stroke="url(#signal)" stroke-width="1.5"/><circle cx="920" cy="142" r="49" fill="none" stroke="${colors.line}" stroke-width="1" stroke-dasharray="2 6"/><path d="M920 43V76M920 208V241M821 142H854M986 142H1019M850 72L873 95M967 189L990 212M850 212L873 189M967 95L990 72" stroke="${colors.line}"/><path d="M888 155L910 126L929 142L955 109" fill="none" stroke="url(#signal)" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"/><rect x="953" y="106" width="6" height="6" fill="${colors.cyan}"/><path d="M1144 250H1158V264" fill="none" stroke="${colors.blue}" stroke-width="2"/>`));
-await write('streak.svg', projectCard('STREAK', 'HÁBITOS / ENTRENAMIENTO', 'Hábitos · entrenamiento · progreso', 'S', '01'));
-await write('stugo.svg', projectCard('STUGO', 'VIDA UNIVERSITARIA', 'Servicios · vivienda · viajes compartidos', 'U', '02'));
-await write('enjambre.svg', projectCard('ENJAMBRE', 'DRONES / EMERGENCIAS', 'Reconocimiento para postemergencias', 'E', '03'));
-await write('may.svg', projectCard('MAY', 'EDICIÓN AUDIOVISUAL', 'Edición modular de video y audio', 'M', '04'));
+const escapeXml = (value) => String(value).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&apos;');
+const write = (name, content) => writeFile(new URL(`../assets/${name}`, import.meta.url), content, 'utf8');
+const round = (n) => Math.round(n * 10) / 10;
+const text = (x, y, content, { size = 16, fill = dark.ink, weight, spacing, anchor } = {}) =>
+  `<text x="${x}" y="${y}" font-family="${font}" font-size="${size}"${weight ? ` font-weight="${weight}"` : ''}${spacing ? ` letter-spacing="${spacing}"` : ''}${anchor ? ` text-anchor="${anchor}"` : ''} fill="${fill}">${escapeXml(content)}</text>`;
+const svg = (width, height, label, body, background) =>
+  `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-label="${escapeXml(label)}">${background ? `<rect width="${width}" height="${height}" fill="${background}"/>` : ''}${body}</svg>`;
+
+// Marco como el del banner: borde tenue, esquinas blancas y el cuadrado azul arriba a la derecha.
+const frame = (width, height, ink = dark.ink, line = dark.line) => {
+  const c = 18;
+  const i = 0.5;
+  const r = width - 0.5;
+  const b = height - 0.5;
+  return `<rect x="${i}" y="${i}" width="${width - 1}" height="${height - 1}" fill="none" stroke="${line}"/>` +
+    `<path d="M${i} ${c}V${i}H${c}M${r - c} ${b}H${r}V${b - c}M${i} ${b - c}V${b}H${c}" fill="none" stroke="${ink}" stroke-width="2"/>` +
+    `<rect x="${width - 14}" y="6" width="8" height="8" fill="${accent}"/>`;
+};
+
+// Semitono: grilla de puntos cuyo radio depende de una función de intensidad,
+// con partículas sueltas que se dispersan como los brazos del banner.
+function seeded(seed) {
+  return () => {
+    seed |= 0;
+    seed = (seed + 0x6d2b79f5) | 0;
+    let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+function halftone({ x, y, width, height, step = 7, seed = 1, fill = dark.ink, intensity }) {
+  const random = seeded(seed);
+  let dots = '';
+  for (let row = 0, py = y; py <= y + height; row += 1, py += step * 0.866) {
+    for (let px = x + (row % 2 ? step / 2 : 0); px <= x + width; px += step) {
+      const u = (px - x) / width;
+      const v = (py - y) / height;
+      const value = Math.max(0, Math.min(1, intensity(u, v, random)));
+      const fade = Math.min(1, u * 3.2);
+      let radius = value * fade * step * 0.52;
+      if (fade < 1 && random() > fade + 0.15) radius = 0;
+      if (radius < 0.45) {
+        if (value > 0.08 && random() < value * 0.18) radius = 0.6 + random() * 0.6;
+        else continue;
+      }
+      dots += `<circle cx="${round(px + (random() - 0.5) * 1.4)}" cy="${round(py + (random() - 0.5) * 1.4)}" r="${round(radius)}"/>`;
+    }
+  }
+  return `<g fill="${fill}">${dots}</g>`;
+}
+
+const smooth = (edge0, edge1, value) => {
+  const t = Math.max(0, Math.min(1, (value - edge0) / (edge1 - edge0)));
+  return t * t * (3 - 2 * t);
+};
+
+const motifs = {
+  // Barras que crecen: constancia día a día.
+  streak: (u, v) => {
+    const bars = 7;
+    const index = Math.floor(u * bars);
+    const local = u * bars - index;
+    if (local > 0.72) return 0;
+    const top = 1 - (index + 1) / bars * 0.92;
+    return smooth(top - 0.02, top + 0.08, v) * (0.45 + 0.55 * (index + 1) / bars) * (1 - v * 0.35);
+  },
+  // Señal de ubicación: anillos que se expanden desde un punto.
+  stugo: (u, v) => {
+    const d = Math.hypot((u - 0.55) * 1.15, v - 0.5);
+    if (d < 0.07) return 1;
+    const ring = Math.pow(Math.max(0, Math.cos(d * 34)), 3);
+    return ring * Math.max(0, 1 - d * 1.45);
+  },
+  // Enjambre: nubes de drones dispersas.
+  enjambre: (() => {
+    const random = seeded(42);
+    const swarm = Array.from({ length: 16 }, (_, i) => ({ u: 0.15 + random() * 0.8, v: 0.12 + random() * 0.76, s: 0.04 + random() * 0.07, w: i < 4 ? 1 : 0.55 + random() * 0.4 }));
+    return (u, v) => Math.max(...swarm.map((p) => p.w * Math.exp(-((u - p.u) ** 2 + (v - p.v) ** 2) / (2 * p.s * p.s))));
+  })(),
+  // Forma de onda de audio.
+  may: (u, v) => {
+    const columns = 26;
+    const local = u * columns - Math.floor(u * columns);
+    if (local > 0.6) return 0;
+    const c = Math.floor(u * columns) / columns;
+    const amplitude = 0.08 + 0.38 * Math.abs(Math.sin(c * Math.PI * 2.3) * Math.sin(c * Math.PI * 7.1 + 0.6));
+    return smooth(amplitude + 0.02, amplitude - 0.03, Math.abs(v - 0.5)) * (0.55 + 0.45 * (1 - Math.abs(v - 0.5) * 2));
+  },
+  // Esfera iluminada desde arriba a la izquierda, como en grabado.
+  sphere: (u, v) => {
+    const dx = (u - 0.6) / 0.38;
+    const dy = (v - 0.5) / 0.46;
+    const d = Math.hypot(dx, dy);
+    if (d > 1) return 0;
+    const z = Math.sqrt(1 - d * d);
+    return Math.max(0, (dx * -0.45 + dy * -0.55 + z * 0.7)) * 1.05;
+  },
+};
+
+// ---------- Tarjetas estáticas ----------
+
+const sectionHeader = (number, label, theme) => {
+  const t = themes[theme];
+  const width = 1200;
+  const labelWidth = (number.length + label.length + 3) * 22 * 0.6 + label.length * 3;
+  return svg(width, 72, `${number} / ${label}`,
+    text(0, 44, `${number}`, { size: 22, fill: t.muted, spacing: 3 }) +
+    text(48, 44, '/', { size: 22, fill: t.line }) +
+    text(78, 44, label.toUpperCase(), { size: 22, fill: t.ink, weight: 700, spacing: 3 }) +
+    `<path d="M${Math.round(labelWidth + 70)} 37H${width - 22}" stroke="${t.line}"/>` +
+    `<rect x="${width - 10}" y="33" width="8" height="8" fill="${accent}"/>`);
+};
+
+const sections = [
+  ['01', 'Sobre mí', 'section-about'],
+  ['02', 'Proyectos', 'section-projects'],
+  ['03', 'Stack', 'section-stack'],
+  ['04', 'Actividad', 'section-activity'],
+];
+for (const [number, label, file] of sections) {
+  for (const theme of ['dark', 'light']) await write(`${file}-${theme}.svg`, sectionHeader(number, label, theme));
+}
+
+for (const theme of ['dark', 'light']) {
+  const t = themes[theme];
+  await write(`intro-${theme}.svg`, svg(1200, 300, 'Joaquín González Calderón · Analista en Sistemas y Desarrollador Full Stack',
+    text(0, 70, 'HOLA, SOY', { size: 18, fill: t.muted, spacing: 6 }) +
+    text(0, 140, 'Joaquín González Calderón', { size: 52, fill: t.ink, weight: 700, spacing: -1 }) +
+    `<path d="M2 178H70" stroke="${t.ink}" stroke-width="2"/><rect x="80" y="174" width="8" height="8" fill="${accent}"/>` +
+    text(0, 226, 'ANALISTA EN SISTEMAS', { size: 20, fill: t.ink, spacing: 3 }) +
+    text(0, 258, 'DESARROLLADOR FULL STACK', { size: 20, fill: t.muted, spacing: 3 }) +
+    halftone({ x: 880, y: 20, width: 320, height: 260, step: 8, seed: 7, fill: t.ink, intensity: motifs.sphere })));
+
+  const groups = [
+    ['FRONTEND', ['TypeScript', 'JavaScript', 'React', 'Next.js', 'Tailwind CSS']],
+    ['BACKEND / DATOS', ['Python', 'PostgreSQL']],
+    ['HERRAMIENTAS', ['Git', 'Docker', 'Figma']],
+  ];
+  let stackBody = '';
+  groups.forEach(([group, items], row) => {
+    const y = row * 72;
+    stackBody += text(0, y + 41, group, { size: 15, fill: t.muted, spacing: 2 });
+    let x = 250;
+    for (const item of items) {
+      const w = Math.round(item.length * 18 * 0.6 + 40);
+      stackBody += `<rect x="${x + 0.5}" y="${y + 12.5}" width="${w}" height="44" fill="none" stroke="${t.line}"/>` +
+        `<rect x="${x + 0.5}" y="${y + 12.5}" width="4" height="44" fill="${t.ink}"/>` +
+        text(x + 22, y + 40, item, { size: 18, fill: t.ink });
+      x += w + 14;
+    }
+  });
+  await write(`stack-${theme}.svg`, svg(1200, 216, 'TypeScript, JavaScript, React, Next.js, Tailwind CSS, Python, PostgreSQL, Git, Docker y Figma', stackBody));
+
+  await write(`footer-${theme}.svg`, svg(1200, 90, 'Joaquín González Calderón',
+    `<path d="M0 20H1200" stroke="${t.line}"/>` +
+    text(0, 66, 'GC', { size: 18, fill: t.ink, weight: 700, spacing: 3 }) +
+    text(600, 66, 'CONSTRUYENDO PRODUCTOS DIGITALES, PUNTO POR PUNTO.', { size: 15, fill: t.muted, spacing: 2, anchor: 'middle' }) +
+    `<rect x="1192" y="56" width="8" height="8" fill="${accent}"/>`));
+}
+
+const projects = [
+  { file: 'streak', name: 'STREAK', tag: 'HÁBITOS / ENTRENAMIENTO', detail: 'Hábitos y entrenamiento', status: 'EN VIVO', live: true, seed: 11 },
+  { file: 'stugo', name: 'STUGO', tag: 'VIDA UNIVERSITARIA', detail: 'App para universitarios', status: 'REPO PRIVADO', seed: 12 },
+  { file: 'enjambre', name: 'ENJAMBRE', tag: 'DRONES / EMERGENCIAS', detail: 'Drones postemergencias', status: 'EN DESARROLLO', seed: 13 },
+  { file: 'may', name: 'MAY', tag: 'EDICIÓN AUDIOVISUAL', detail: 'Editor de video y audio', status: 'EN DESARROLLO', seed: 14 },
+];
+for (const [index, project] of projects.entries()) {
+  const number = String(index + 1).padStart(2, '0');
+  await write(`${project.file}.svg`, svg(600, 340, `${project.name} · ${project.detail}`,
+    halftone({ x: 250, y: 46, width: 320, height: 250, step: 7, seed: project.seed, intensity: motifs[project.file] }) +
+    frame(600, 340) +
+    text(32, 52, `PROYECTO / ${number}`, { size: 15, fill: dark.muted, spacing: 2 }) +
+    text(32, 224, project.name, { size: 46, fill: dark.ink, weight: 700, spacing: 1 }) +
+    text(32, 258, project.detail, { size: 18, fill: dark.muted }) +
+    `<path d="M32 280H120" stroke="${dark.line}"/>` +
+    (project.live ? `<rect x="32" y="298" width="8" height="8" fill="${accent}"/>` : `<rect x="32.5" y="298.5" width="7" height="7" fill="none" stroke="${dark.muted}"/>`) +
+    text(50, 307, project.status, { size: 13, fill: project.live ? dark.ink : dark.muted, spacing: 2 }), dark.bg));
+}
+
+// ---------- Estadísticas (necesitan la API de GitHub) ----------
 
 const [user, repositories, events] = await Promise.all([
   github(`/users/${username}`),
@@ -48,45 +225,51 @@ let stars = 0;
 const languageBytes = new Map();
 for (const repo of repositories) {
   stars += repo.stargazers_count ?? 0;
+  if (repo.fork) continue;
   const languages = await github(`/repos/${username}/${encodeURIComponent(repo.name)}/languages`);
   for (const [name, bytes] of Object.entries(languages)) languageBytes.set(name, (languageBytes.get(name) ?? 0) + bytes);
 }
 
 const metrics = [
-  ['Repos públicos', user.public_repos ?? 0],
-  ['Seguidores', user.followers ?? 0],
-  ['Estrellas', stars],
+  ['REPOS', user.public_repos ?? 0],
+  ['SEGUIDORES', user.followers ?? 0],
+  ['ESTRELLAS', stars],
 ];
-let statsBody = `${title('GITHUB / RESUMEN PÚBLICO')}`;
+let statsBody = frame(590, 220) + text(32, 52, 'GITHUB / RESUMEN', { size: 15, fill: dark.muted, spacing: 2 });
 metrics.forEach(([label, value], index) => {
-  const x = 28 + index * 151;
-  statsBody += `<path d="M${x} 55V67" stroke="${colors.cyan}"/><text x="${x}" y="103" font-family="${font}" font-size="30" font-weight="700" fill="${colors.white}">${Number(value).toLocaleString('es-AR')}</text><text x="${x}" y="129" font-family="${font}" font-size="11" fill="${colors.muted}">${escapeXml(label.toUpperCase())}</text>`;
+  const x = 32 + index * 185;
+  if (index > 0) statsBody += `<path d="M${x - 24} 96V178" stroke="${dark.line}"/>`;
+  statsBody += text(x, 150, Number(value).toLocaleString('es-AR'), { size: 52, fill: dark.ink, weight: 700 }) +
+    text(x, 182, label, { size: 14, fill: dark.muted, spacing: 2 });
 });
-await write('stats.svg', svg(480, 160, 'Resumen público de GitHub', statsBody));
+await write('stats.svg', svg(590, 220, 'Resumen público de GitHub', statsBody, dark.bg));
 
-const topLanguages = [...languageBytes.entries()].sort((a, b) => b[1] - a[1]).slice(0, 5);
+const topLanguages = [...languageBytes.entries()].sort((a, b) => b[1] - a[1]).slice(0, 4);
 const totalBytes = [...languageBytes.values()].reduce((sum, bytes) => sum + bytes, 0);
-const palette = ['#3B82F6', '#60A5FA', '#93C5FD', '#2563EB', '#BFDBFE'];
-let langsBody = title('Lenguajes principales');
+const shades = [dark.ink, '#A9AEB6', '#6B727D', '#3D444E'];
+let langsBody = frame(590, 220) + text(32, 52, 'LENGUAJES', { size: 15, fill: dark.muted, spacing: 2 });
 if (totalBytes === 0) {
-  langsBody += `<text x="28" y="91" font-family="${font}" font-size="13" fill="${colors.muted}">Sin datos públicos disponibles.</text>`;
+  langsBody += text(32, 130, 'Sin datos públicos disponibles.', { size: 16, fill: dark.muted });
 } else {
-  let offset = 28;
-  const barWidth = 424;
-  topLanguages.forEach(([, bytes], index) => {
-    const width = barWidth * bytes / totalBytes;
-    langsBody += `<rect x="${offset}" y="55" width="${Math.max(width, 1)}" height="8" fill="${palette[index]}"/>`;
-    offset += width;
+  // Barra hecha de puntos, como el resto del perfil.
+  const dotCount = 52;
+  let filled = 0;
+  const counts = topLanguages.map(([, bytes]) => Math.max(1, Math.round(bytes / totalBytes * dotCount)));
+  let dots = '';
+  counts.forEach((count, index) => {
+    for (let i = 0; i < count && filled < dotCount; i += 1, filled += 1) dots += `<circle cx="${38 + filled * 10.2}" cy="84" r="3.6" fill="${shades[index]}"/>`;
   });
+  for (; filled < dotCount; filled += 1) dots += `<circle cx="${38 + filled * 10.2}" cy="84" r="3.6" fill="${dark.line}"/>`;
+  langsBody += dots;
   topLanguages.forEach(([name, bytes], index) => {
-    const column = index % 2;
-    const row = Math.floor(index / 2);
-    const x = 28 + column * 215;
-    const y = 94 + row * 25;
-    langsBody += `<circle cx="${x + 4}" cy="${y - 4}" r="4" fill="${palette[index]}"/><text x="${x + 14}" y="${y}" font-family="${font}" font-size="12" fill="${colors.white}">${escapeXml(name)}</text><text x="${x + 185}" y="${y}" text-anchor="end" font-family="${font}" font-size="12" fill="${colors.muted}">${Math.round(bytes / totalBytes * 100)}%</text>`;
+    const x = 32 + (index % 2) * 275;
+    const y = 138 + Math.floor(index / 2) * 40;
+    langsBody += `<circle cx="${x + 5}" cy="${y - 5}" r="5" fill="${shades[index]}"/>` +
+      text(x + 20, y, name, { size: 17, fill: dark.ink }) +
+      text(x + 245, y, `${Math.max(1, Math.round(bytes / totalBytes * 100))}%`, { size: 17, fill: dark.muted, anchor: 'end' });
   });
 }
-await write('languages.svg', svg(480, 160, 'Lenguajes más utilizados en repositorios públicos', langsBody));
+await write('languages.svg', svg(590, 220, 'Lenguajes más utilizados en repositorios públicos', langsBody, dark.bg));
 
 const now = new Date();
 const days = Array.from({ length: 30 }, (_, index) => {
@@ -97,15 +280,28 @@ const byDay = new Map(days.map((day) => [day.key, day]));
 for (const event of events) {
   if (event.type !== 'PushEvent') continue;
   const day = byDay.get(event.created_at.slice(0, 10));
-  if (day) day.count += event.payload?.size ?? event.payload?.commits?.length ?? 0;
+  if (day) day.count += event.payload?.size ?? event.payload?.commits?.length ?? 1;
 }
+// Matriz de puntos: cada columna es un día, cada fila un nivel de actividad.
 const maxCount = Math.max(1, ...days.map((day) => day.count));
-const plot = { left: 48, top: 68, width: 884, height: 94 };
-const points = days.map((day, index) => `${plot.left + index * plot.width / (days.length - 1)},${plot.top + plot.height - day.count / maxCount * plot.height}`).join(' ');
-let activityBody = title('ACTIVIDAD PÚBLICA / ÚLTIMOS 30 DÍAS');
-activityBody += `<path d="M${plot.left} ${plot.top + plot.height}H${plot.left + plot.width}" stroke="${colors.line}"/><polyline points="${points}" fill="none" stroke="${colors.blue}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>`;
-if (days.every((day) => day.count === 0)) {
-  activityBody += `<text x="490" y="116" text-anchor="middle" font-family="${font}" font-size="14" fill="${colors.muted}">Sin eventos públicos de push durante este período</text>`;
+const levels = 8;
+const grid = { left: 40, bottom: 222, colStep: 37.6, rowStep: 17 };
+let activityBody = frame(1200, 290) + text(32, 52, 'ACTIVIDAD PÚBLICA / ÚLTIMOS 30 DÍAS', { size: 15, fill: dark.muted, spacing: 2 });
+const total = days.reduce((sum, day) => sum + day.count, 0);
+activityBody += text(1168, 52, `${total} COMMITS`, { size: 15, fill: dark.ink, spacing: 2, anchor: 'end' });
+days.forEach((day, column) => {
+  const lit = day.count === 0 ? 0 : Math.max(1, Math.round(day.count / maxCount * levels));
+  const isToday = column === days.length - 1;
+  for (let row = 0; row < levels; row += 1) {
+    const on = row < lit;
+    const fill = on ? (isToday ? accent : dark.ink) : dark.line;
+    activityBody += `<circle cx="${round(grid.left + 14 + column * grid.colStep)}" cy="${grid.bottom - row * grid.rowStep}" r="${on ? 5.5 : 3}" fill="${fill}"/>`;
+  }
+});
+if (total === 0) {
+  activityBody += `<rect x="330" y="128" width="540" height="44" fill="${dark.bg}"/>` +
+    text(600, 156, 'Sin pushes públicos en este período', { size: 17, fill: dark.muted, anchor: 'middle' });
 }
-activityBody += `<text x="${plot.left}" y="190" font-family="${font}" font-size="11" fill="${colors.muted}">${days[0].key}</text><text x="${plot.left + plot.width}" y="190" text-anchor="end" font-family="${font}" font-size="11" fill="${colors.muted}">${days.at(-1).key}</text>`;
-await write('activity.svg', svg(980, 210, 'Actividad pública de los últimos 30 días', activityBody));
+activityBody += text(grid.left + 8, 264, days[0].key, { size: 14, fill: dark.muted }) +
+  text(1160, 264, 'HOY', { size: 14, fill: dark.muted, anchor: 'end', spacing: 2 });
+await write('activity.svg', svg(1200, 290, 'Actividad pública de los últimos 30 días', activityBody, dark.bg));

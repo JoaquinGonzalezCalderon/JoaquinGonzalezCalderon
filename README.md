@@ -2,75 +2,70 @@
   <img src="assets/banner-hands.png" alt="Ilustración monocroma de dos manos acercándose, hecha con puntos de semitono" width="100%">
 </p>
 
-<h1 align="center">Hola, soy Joaquín</h1>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/intro-dark.svg">
+  <img src="assets/intro-light.svg" alt="Hola, soy Joaquín González Calderón · Analista en Sistemas · Desarrollador Full Stack" width="100%">
+</picture>
 
-<h3 align="center">Analista en Sistemas · Desarrollador Full Stack</h3>
+Construyo productos digitales útiles, desde la idea hasta su implementación.
 
-<p align="center">Construyo productos digitales útiles, desde la idea hasta su implementación.</p>
+[Portfolio ↗](https://www.joaquincalderon.com.ar/) &nbsp;/&nbsp; [Instagram ↗](https://www.instagram.com/joaquinncalderon/)
 
-<p align="center">
-  <a href="https://www.joaquincalderon.com.ar/">Portfolio ↗</a>
-  &nbsp;·&nbsp;
-  <a href="https://www.instagram.com/joaquinncalderon/">Instagram ↗</a>
-  &nbsp;·&nbsp;
-  <a href="https://github.com/JoaquinGonzalezCalderon">GitHub ↗</a>
-</p>
+<br>
 
----
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/section-about-dark.svg">
+  <img src="assets/section-about-light.svg" alt="01 / Sobre mí" width="100%">
+</picture>
 
-## 👨‍💻 Sobre mí
-
-Soy Joaquín González Calderón, analista en sistemas y desarrollador full stack. Me interesa resolver problemas reales con software y crear experiencias claras, cuidadas y fáciles de usar.
+Soy analista en sistemas y desarrollador full stack. Me interesa resolver problemas reales con software y crear experiencias claras, cuidadas y fáciles de usar.
 
 Trabajo en aplicaciones web y móviles, conectando diseño, desarrollo y producto. Disfruto aprender herramientas nuevas y convertir ideas en soluciones que puedan crecer con el tiempo.
 
----
+<br>
 
-## 🚀 Proyectos
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/section-projects-dark.svg">
+  <img src="assets/section-projects-light.svg" alt="02 / Proyectos" width="100%">
+</picture>
 
-<p align="center"><img src="assets/streak.svg" alt="STREAK · seguimiento de hábitos y entrenamiento" width="100%"></p>
-
-Seguimiento de hábitos, creatina, entrenamientos y progreso personal. [Abrir aplicación ↗](https://www.streak.com.ar/app)
-
-<p align="center"><img src="assets/stugo.svg" alt="STUGO · servicios para estudiantes universitarios" width="100%"></p>
-
-Aplicación móvil desarrollada en equipo para estudiantes universitarios, con servicios, lugares, vivienda y viajes compartidos. <sub>Repositorio privado</sub>
-
-<p align="center"><img src="assets/enjambre.svg" alt="ENJAMBRE · reconocimiento con drones" width="100%"></p>
-
-Proyecto tecnológico de reconocimiento con drones para apoyar decisiones durante la respuesta a postemergencias.
-
-<p align="center"><img src="assets/may.svg" alt="MAY · editor multimedia modular" width="100%"></p>
-
-Editor multimedia todo en uno para video y audio, con una interfaz modular y herramientas para creadores.
-
----
-
-## 🤝 Conectemos
-
-<p align="center">
-  <a href="https://www.joaquincalderon.com.ar/">PORTFOLIO</a>
-  &nbsp;&nbsp;·&nbsp;&nbsp;
-  <a href="https://www.instagram.com/joaquinncalderon/">INSTAGRAM</a>
+<p>
+  <a href="https://www.streak.com.ar/app"><img src="assets/streak.svg" alt="STREAK · seguimiento de hábitos, creatina, entrenamientos y progreso personal" width="49%"></a>
+  <img src="assets/stugo.svg" alt="STUGO · app móvil para estudiantes universitarios: servicios, lugares, vivienda y viajes compartidos" width="49%">
+</p>
+<p>
+  <img src="assets/enjambre.svg" alt="ENJAMBRE · reconocimiento con drones para apoyar decisiones en postemergencias" width="49%">
+  <img src="assets/may.svg" alt="MAY · editor multimedia modular de video y audio para creadores" width="49%">
 </p>
 
----
+<br>
 
-## 🧰 Tecnologías
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/section-stack-dark.svg">
+  <img src="assets/section-stack-light.svg" alt="03 / Stack" width="100%">
+</picture>
 
-<p align="center">
-  <img src="https://skillicons.dev/icons?i=ts,js,react,nextjs,tailwind,python,postgres,git,docker,figma&theme=dark&perline=10" alt="TypeScript, JavaScript, React, Next.js, Tailwind CSS, Python, PostgreSQL, Git, Docker y Figma">
-</p>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/stack-dark.svg">
+  <img src="assets/stack-light.svg" alt="Frontend: TypeScript, JavaScript, React, Next.js, Tailwind CSS. Backend y datos: Python, PostgreSQL. Herramientas: Git, Docker, Figma" width="100%">
+</picture>
 
----
+<br>
 
-## 📊 GitHub
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/section-activity-dark.svg">
+  <img src="assets/section-activity-light.svg" alt="04 / Actividad" width="100%">
+</picture>
 
-<p align="center">
+<p>
   <img src="assets/stats.svg" alt="Resumen de estadísticas públicas de GitHub" width="49%">
   <img src="assets/languages.svg" alt="Lenguajes más utilizados en repositorios públicos" width="49%">
 </p>
+<p>
+  <img src="assets/activity.svg" alt="Actividad pública en GitHub durante los últimos 30 días" width="100%">
+</p>
 
-<p align="center"><img src="assets/activity.svg" alt="Gráfico de actividad pública en GitHub durante los últimos 30 días" width="100%"></p>
-
-<p align="center"><sub>Estadísticas basadas en repositorios y actividad públicos.</sub></p>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/footer-dark.svg">
+  <img src="assets/footer-light.svg" alt="GC · Construyendo productos digitales, punto por punto" width="100%">
+</picture>
